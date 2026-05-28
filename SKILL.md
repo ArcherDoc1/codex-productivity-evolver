@@ -1,6 +1,6 @@
 ---
 name: codex-productivity-evolver
-description: Use when handling Archer's coding, config, docs, automation, deployment, troubleshooting, security, prompt, or skill-building tasks. Enforces Chinese output, risk-aware workflow, small reversible changes, verification, and opt-in experience capture.
+description: Use when handling coding, config, docs, automation, deployment, troubleshooting, security, prompt, or skill-building tasks. Enforces Chinese output, risk-aware workflow, small reversible changes, verification, and opt-in experience capture.
 ---
 
 # Codex Productivity Evolver
@@ -226,7 +226,7 @@ Get-Help <command>
 
 先检查：
 - 是否已有同类 skill。
-- 是否需要正式安装到 `C:\Users\Archer\.codex\skills`。
+- 是否需要正式安装到用户自己的 Codex skills 目录，例如 `%USERPROFILE%\.codex\skills`。
 - Skill 是否只包含必要文件。
 
 不能直接做：
@@ -384,4 +384,3 @@ rg "API_BASE|OPENAI_API_KEY|TOKEN|timeout|retry"
 6. 不得为了“自我进化”频繁重写自身规则。
 7. 每次规则更新必须给出 diff 和原因。
 8. 优先补充具体经验，不写空泛原则。
-

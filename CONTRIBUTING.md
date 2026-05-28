@@ -1,6 +1,6 @@
-﻿# Contributing
+# Contributing
 
-这个仓库主要服务个人 Codex 工作流，但仍然按清晰、可回滚、可验证的方式维护。
+这个仓库主要服务 Codex 工作流，但仍然按清晰、可回滚、可验证的方式维护。
 
 ## 修改原则
 
@@ -12,8 +12,9 @@
 
 ## 提交前检查
 
+在仓库根目录执行：
+
 ```powershell
-cd E:\Codegit
 git status
 rg -n -i "api[_-]?key|secret|token|password|cookie|private key|ghp_|sk-" .
 git diff --check

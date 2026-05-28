@@ -1,4 +1,4 @@
-﻿# Codex Productivity Evolver
+# Codex Productivity Evolver
 
 一个面向 Codex 日常协作的中文生产力增强 Skill。它把“先检查真实状态、小步修改、保留回滚、完成验证、沉淀经验”固化成默认工作方式，适合处理代码、配置、自动化、部署、排障、安全检查和 prompt/skill 编写任务。
 
@@ -37,15 +37,17 @@
 
 ## 快速安装
 
-把仓库克隆到任意工作目录后，将 `SKILL.md` 放入 Codex skills 目录：
+把仓库克隆到你自己的工作目录，然后从仓库根目录复制 `SKILL.md` 到本机 Codex skills 目录。
 
 ```powershell
-git clone https://github.com/ArcherDoc1/codex-productivity-evolver.git E:\Codegit
-New-Item -ItemType Directory -Force C:\Users\Archer\.codex\skills\codex-productivity-evolver
-Copy-Item E:\Codegit\SKILL.md C:\Users\Archer\.codex\skills\codex-productivity-evolver\SKILL.md -Force
+git clone https://github.com/ArcherDoc1/codex-productivity-evolver.git
+cd codex-productivity-evolver
+$skillDir = Join-Path $env:USERPROFILE ".codex\skills\codex-productivity-evolver"
+New-Item -ItemType Directory -Force $skillDir
+Copy-Item .\SKILL.md (Join-Path $skillDir "SKILL.md") -Force
 ```
 
-更详细的安装、更新和回滚方式见 [INSTALL.md](INSTALL.md)。
+如果你不想 clone 整个仓库，也可以只下载 `SKILL.md`，再放到自己的 Codex skills 目录中。更详细的安装、更新和回滚方式见 [INSTALL.md](INSTALL.md)。
 
 ## 使用方式
 

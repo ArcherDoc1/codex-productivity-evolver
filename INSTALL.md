@@ -1,48 +1,64 @@
-﻿# 安装与更新
+# 安装与更新
 
 ## 前置条件
 
 - Windows 电脑已安装 Git。
-- Codex 本地 skills 目录可用，默认位置通常是：
+- Codex 本地 skills 目录可用，默认位置通常是当前用户目录下的 `.codex\skills`。
+
+在 PowerShell 中可以用下面的命令查看目标安装目录：
 
 ```powershell
-C:\Users\Archer\.codex\skills
+Join-Path $env:USERPROFILE ".codex\skills"
 ```
 
 ## 首次安装
 
-如果你已经把本仓库放在 `E:\Codegit`，执行：
+推荐把仓库克隆到你自己的代码目录，目录名可以按个人习惯选择：
 
 ```powershell
-New-Item -ItemType Directory -Force C:\Users\Archer\.codex\skills\codex-productivity-evolver
-Copy-Item E:\Codegit\SKILL.md C:\Users\Archer\.codex\skills\codex-productivity-evolver\SKILL.md -Force
+git clone https://github.com/ArcherDoc1/codex-productivity-evolver.git
+cd codex-productivity-evolver
+$skillDir = Join-Path $env:USERPROFILE ".codex\skills\codex-productivity-evolver"
+New-Item -ItemType Directory -Force $skillDir
+Copy-Item .\SKILL.md (Join-Path $skillDir "SKILL.md") -Force
 ```
 
-如果从 GitHub 重新克隆：
+## 只下载 SKILL.md
+
+如果你不需要完整仓库，也可以在 GitHub 页面打开 `SKILL.md`，点击 Raw 后保存文件，然后放到：
+
+```text
+<your-user-home>\.codex\skills\codex-productivity-evolver\SKILL.md
+```
+
+PowerShell 示例：
 
 ```powershell
-git clone https://github.com/ArcherDoc1/codex-productivity-evolver.git E:\Codegit
-New-Item -ItemType Directory -Force C:\Users\Archer\.codex\skills\codex-productivity-evolver
-Copy-Item E:\Codegit\SKILL.md C:\Users\Archer\.codex\skills\codex-productivity-evolver\SKILL.md -Force
+$skillDir = Join-Path $env:USERPROFILE ".codex\skills\codex-productivity-evolver"
+New-Item -ItemType Directory -Force $skillDir
+Copy-Item .\SKILL.md (Join-Path $skillDir "SKILL.md") -Force
 ```
 
 ## 更新仓库
 
+在你自己的仓库目录中执行：
+
 ```powershell
-cd E:\Codegit
 git pull
 ```
 
 ## 更新本地 Codex skill
 
+在仓库根目录中执行：
+
 ```powershell
-Copy-Item E:\Codegit\SKILL.md C:\Users\Archer\.codex\skills\codex-productivity-evolver\SKILL.md -Force
+$skillDir = Join-Path $env:USERPROFILE ".codex\skills\codex-productivity-evolver"
+Copy-Item .\SKILL.md (Join-Path $skillDir "SKILL.md") -Force
 ```
 
 ## 修改后上传 GitHub
 
 ```powershell
-cd E:\Codegit
 git status
 git add .
 git commit -m "Update skill docs"
