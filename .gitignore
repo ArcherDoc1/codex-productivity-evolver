@@ -1,0 +1,17 @@
+﻿# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local scratch
+*.tmp
+*.bak
+*.log
+.env
+.env.*
+
+# Do not publish local Codex runtime state
+.codex/
+sessions/
+archived_sessions/
